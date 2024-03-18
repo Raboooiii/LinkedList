@@ -6,7 +6,7 @@ public:
     int data;
     Node* next;
 
-    Node(int value);
+    Node(int p);
 };
 
 class LinkedList {
@@ -15,15 +15,15 @@ private:
 
 public:
     LinkedList();
-    void insertAtBeginning(int value);
-    void insertAtEnd(int value);
-    void insertAfterKey(int key, int value);
-    void insertBeforeKey(int key, int value);
+    void insertAtBeginning(int p);
+    void insertAtEnd(int p);
+    void insertAfterKey(int key, int p);
+    void insertBeforeKey(int key, int p);
     void deleteFromBeginning();
     void deleteFromEnd();
     void deleteAfterKey(int key);
     void concatenate(LinkedList& list);
-    bool search(int value);
+    bool search(int p);
     void reverse();
     void reverseTraversal();
     void sort();
