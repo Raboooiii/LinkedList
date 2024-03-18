@@ -2,7 +2,6 @@
 
 int main() {
     LinkedList list1;
-    int a,b,c,d,e,f;
     cout << "First Linked List:  \n";
     list1.insertAtBeginning(1);
     list1.insertAtBeginning(2);
