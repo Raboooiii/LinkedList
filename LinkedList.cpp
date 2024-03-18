@@ -1,7 +1,7 @@
 #include "LinkedList.h"
 
-Node::Node(int value) {
-    data = value;
+Node::Node(int p) {
+    data = p;
     next = nullptr;
 }
 
@@ -9,14 +9,14 @@ LinkedList::LinkedList() {
     head = nullptr;
 }
 
-void LinkedList::insertAtBeginning(int value) {
-    Node* newNode = new Node(value);
+void LinkedList::insertAtBeginning(int p) {
+    Node* newNode = new Node(p);
     newNode->next = head;
     head = newNode;
 }
 
-void LinkedList::insertAtEnd(int value) {
-    Node* newNode = new Node(value);
+void LinkedList::insertAtEnd(int p) {
+    Node* newNode = new Node(p);
     if (head == nullptr) {
         head = newNode;
         return;
@@ -28,24 +28,24 @@ void LinkedList::insertAtEnd(int value) {
     temp->next = newNode;
 }
 
-void LinkedList::insertAfterKey(int key, int value) {
-    Node* newNode = new Node(value);
+void LinkedList::insertAfterKey(int key, int p) {
+    Node* newNode = new Node(p);
     Node* temp = head;
     while (temp != nullptr && temp->data != key) {
         temp = temp->next;
     }
     if (temp == nullptr) {
-        std::cout << "Key not found" << std::endl;
+        cout << "Key not found" << endl;
         return;
     }
     newNode->next = temp->next;
     temp->next = newNode;
 }
 
-void LinkedList::insertBeforeKey(int key, int value) {
-    Node* newNode = new Node(value);
+void LinkedList::insertBeforeKey(int key, int p) {
+    Node* newNode = new Node(p);
     if (head == nullptr) {
-        std::cout << "List is empty" << std::endl;
+        cout << "List is empty" << endl;
         return;
     }
     if (head->data == key) {
@@ -60,7 +60,7 @@ void LinkedList::insertBeforeKey(int key, int value) {
         curr = curr->next;
     }
     if (curr == nullptr) {
-        std::cout << "Key not found" << std::endl;
+        cout << "Key not found" << endl;
         return;
     }
     prev->next = newNode;
@@ -69,7 +69,7 @@ void LinkedList::insertBeforeKey(int key, int value) {
 
 void LinkedList::deleteFromBeginning() {
     if (head == nullptr) {
-        std::cout << "List is empty" << std::endl;
+        cout << "List is empty" << endl;
         return;
     }
     Node* temp = head;
@@ -79,7 +79,7 @@ void LinkedList::deleteFromBeginning() {
 
 void LinkedList::deleteFromEnd() {
     if (head == nullptr) {
-        std::cout << "List is empty" << std::endl;
+        cout << "List is empty" << endl;
         return;
     }
     if (head->next == nullptr) {
@@ -103,7 +103,7 @@ void LinkedList::deleteAfterKey(int key) {
         temp = temp->next;
     }
     if (temp == nullptr || temp->next == nullptr) {
-        std::cout << "Key not found or no element after key" << std::endl;
+        cout << "Key not found or no element after key" << endl;
         return;
     }
     Node* toDelete = temp->next;
@@ -124,10 +124,10 @@ void LinkedList::concatenate(LinkedList& list) {
     list.head = nullptr;
 }
 
-bool LinkedList::search(int value) {
+bool LinkedList::search(int p) {
     Node* temp = head;
     while (temp != nullptr) {
-        if (temp->data == value) {
+        if (temp->data == p) {
             return true;
         }
         temp = temp->next;
@@ -180,8 +180,8 @@ void LinkedList::sort() {
 void LinkedList::print() {
     Node* temp = head;
     while (temp != nullptr) {
-        std::cout << temp->data << " ";
+        cout << temp->data << " ";
         temp = temp->next;
     }
-    std::cout << std::endl;
+    cout << endl;
 }
